@@ -31,14 +31,14 @@ module Codebreaker
       @available_hints = @secret_code.dup
     end
 
-    def matrix_generator(inputted_guess)
+    def generate_matrix(inputted_guess)
       validate_guess!(inputted_guess)
       @attempts += 1
       matrix(inputted_guess)
     end
 
     def use_hint
-      return ' ' if @available_hints.empty?
+      return if @available_hints.empty?
 
       hint = @available_hints.chars.sample
       @available_hints.sub!(hint, '')
