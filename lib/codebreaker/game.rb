@@ -71,7 +71,7 @@ module Codebreaker
 
     def matrix(inputted_guess)
       inputted_guess, matrix, unnecessary_char = check_position_in_matrix(inputted_guess)
-      _, matrix, = check_for_inclusion_in_matrix(inputted_guess, matrix, unnecessary_char)
+      _, matrix, = check_for_inclusion_in_matrix(check_position_in_matrix(inputted_guess))
       matrix
     end
 
@@ -92,7 +92,7 @@ module Codebreaker
           unnecessary_char += char
         end
       end
-      [inputted_guess, matrix, unnecessary_char]
+      [matrix]
     end
   end
 end

@@ -22,6 +22,7 @@ module Codebreaker
        ['6666', '1661', '++'],
        ['1234', '3124', '+---'],
        ['1234', '1524', '++-'],
+       ['1232', '5225', '+-'],
        ['1234', '1234', '++++']].each do |secret_code, guess, expected|
         it "should return #{expected} when the secret key is #{secret_code} and the guess is #{guess}" do
           game.instance_variable_set(:@secret_code, secret_code)
