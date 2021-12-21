@@ -14,3 +14,7 @@ gem 'fasterer', '~> 0.8.3'
 gem 'simplecov', '~> 0.21.2'
 
 gem 'ffaker', '~> 2.18.0'
+
+gem 'rubocop-performance', require: false
+
+gem 'rubocop-rspec', require: false
