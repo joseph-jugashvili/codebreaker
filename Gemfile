@@ -18,3 +18,5 @@ gem 'ffaker', '~> 2.18.0'
 gem 'rubocop-performance', require: false
 
 gem 'rubocop-rspec', require: false
+
+gem 'rspec_junit_formatter'
