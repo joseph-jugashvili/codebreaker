@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+require 'pry'
 
 module Codebreaker
   RSpec.describe Game do
@@ -16,7 +16,7 @@ module Codebreaker
         game.instance_variable_set(:@available_hints, '1')
         game.use_hint
 
-        expect(game.use_hint).to eq ' '
+        expect(game.use_hint).to eq nil
       end
     end
   end

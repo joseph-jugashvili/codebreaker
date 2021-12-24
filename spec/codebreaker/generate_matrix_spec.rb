@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Codebreaker
   RSpec.describe Game do
     let(:game) { Game.new }

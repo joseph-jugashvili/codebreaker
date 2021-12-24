@@ -20,3 +20,5 @@ gem 'rubocop-performance', require: false
 gem 'rubocop-rspec', require: false
 
 gem 'rspec_junit_formatter'
+
+gem 'pry'

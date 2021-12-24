@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Codebreaker
   RSpec.shared_examples 'callable hints' do
     before { stub_const('Codebreaker::Game::DIFFICULTIES', { difficulty => { attempts: 1, hints: 1 } }) }

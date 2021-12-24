@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 RSpec.describe Validatable do
   let(:dummy_class) { Class.new { extend Validatable } }
 

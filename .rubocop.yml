@@ -19,4 +19,7 @@ Layout/LineLength:
   Max: 120
   Exclude: 
   - 'lib/codebraker/game.rb'
+  
+Style/FrozenStringLiteralComment:
+  Enabled: false
 

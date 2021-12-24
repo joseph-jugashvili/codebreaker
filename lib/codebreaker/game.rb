@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require_relative 'validation/errors'
 require_relative 'validation/validatable'
 
@@ -70,25 +68,30 @@ module Codebreaker
     private
 
     def matrix(inputted_guess)
-      _, matrix, = check_for_inclusion_in_matrix(*check_position_in_matrix(inputted_guess))
-      matrix
+      check_for_inclusion_in_matrix(*check_position_in_matrix(inputted_guess.split('')))
     end
 
     def check_position_in_matrix(inputted_guess)
+      copy_of_the_code = @secret_code.split('')
       matrix = ''
-      unnecessary_char = ''
-      (0...LENGTH_SECRET_CODE).select { |index| inputted_guess[index] == @secret_code[index] }.reverse_each do |index|
-        matrix += '+'
-        unnecessary_char += inputted_guess.slice!(index)
+      inputted_guess.each_index do |index|
+        next unless copy_of_the_code[index] == inputted_guess[index]
+
+        copy_of_the_code[index] = false
+        inputted_guess[index] = nil
+        matrix << '+'
       end
-      [inputted_guess, matrix, unnecessary_char]
+      [matrix, copy_of_the_code, inputted_guess]
     end
 
-    def check_for_inclusion_in_matrix(inputted_guess, matrix = '', unnecessary_char = '')
-      inputted_guess.each_char do |char|
-        if @secret_code.include?(char) && !unnecessary_char.include?(char)
-          matrix += '-'
-          unnecessary_char += char
+    def check_for_inclusion_in_matrix(matrix, copy_of_the_code, inputted_guess)
+      inputted_guess.each_index do |index|
+        copy_of_the_code.each_index do |i|
+          next unless inputted_guess[index] == copy_of_the_code[i]
+
+          copy_of_the_code.delete_at(i)
+          inputted_guess[index] = nil
+          matrix << '-'
         end
       end
       matrix

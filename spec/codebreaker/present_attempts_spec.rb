@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Codebreaker
   RSpec.shared_examples 'callable attempts' do
     before { stub_const('Codebreaker::Game::DIFFICULTIES', { difficulty => { attempts: 1, hints: 1 } }) }
@@ -17,7 +15,7 @@ module Codebreaker
       end
 
       it 'should return false if attempt was use' do
-        game.matrix_generator('1111')
+        game.generate_matrix('1111')
         expect(game.present_attempts?).to be_falsey
       end
     end
