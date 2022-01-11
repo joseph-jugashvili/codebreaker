@@ -61,6 +61,14 @@ module Codebreaker
       @attempts < DIFFICULTIES.values[difficulty][:attempts]
     end
 
+    def available_hints
+      DIFFICULTIES.values[difficulty][:hints]
+    end
+
+    def available_attempts
+      DIFFICULTIES.values[difficulty][:attempts]
+    end
+
     def available_difficulties
       DIFFICULTIES
     end
